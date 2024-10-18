@@ -1,0 +1,159 @@
+.cartlist {
+  display: flex;
+  flex-direction: column;
+  /*align-items: start;*/
+  padding: 5px;
+  border-radius: 10px;
+  background: #f3f3f3;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  
+  max-width: 900px;
+  min-width: 700px;
+  /*
+  margin: 10px auto;
+  */
+  color: #424242;
+  text-align: vertical;
+  margin-top: 10px;
+}
+
+.cartlist>div {
+  /* margin: 20px;*/
+  padding: 5px;
+  /*background-color: #f9f9f9;*/
+  border-radius: 5px;
+}
+
+.cartlist>div h2 {
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 24px;
+  color: #333;
+}
+
+.cartlist>div p {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.cartlist>div button {
+  /*padding:  1px;*/
+  font-size: 14px;
+  margin-left: 5px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.cartlist>div button:disabled {
+  cursor: not-allowed;
+}
+
+.cartlist>div button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .cartlist {
+    max-height: 100%;
+  }
+
+  .cartlist>div {
+    margin: 5px;
+    /*padding: 10px;*/
+  }
+
+  .cartlist>div h2 {
+    font-size: 20px;
+  }
+
+  .cartlist>div p {
+    font-size: 14px;
+  }
+
+  .cartlist>div button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+.buyButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.grid-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  /* Adjust column widths as needed */
+  gap: 10px;
+  /* Adjust gap as needed */
+}
+
+.header-item {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.grid-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  /* Adjust column widths as needed */
+  gap: 10px;
+}
+
+.product-name,
+.quantity,
+.subtotal,
+.delete-button {
+  /*border: 1px solid #ccc; */
+  padding: 5px;
+}
+
+/*
+.quantity-controls {
+  justify-content: unset;
+}
+
+.quantity-controls {
+  display: flex;
+  justify-content: space-around;
+}*/
+
+.centered-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  /* Adjust padding as needed */
+}
+
+.centered-button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered-button img {
+  margin-left: 5px;
+}
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.total-price {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 10px;
+}

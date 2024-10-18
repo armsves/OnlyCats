@@ -1,0 +1,270 @@
+.hamburger {
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Styles for desktop */
+@media (min-width: 768px) {
+  .TopBar {
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+  }
+}
+
+/* We don't need to declare styles for mobile with max-width because we have started with mobile-first design */
+
+.TopBar h1,
+.TopBar h2,
+.TopBar h3 {
+  font-size: 1em;
+  text-align: center;
+  /*margin-bottom: 10px;*/
+}
+
+@media (min-width: 768px) {
+
+  .TopBar h1,
+  .TopBar h2,
+  .TopBar h3 {
+    font-size: 1.5em;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+
+
+.TopBar p {
+  font-size: 1em;
+  color: #424242;
+}
+
+.TopBar .fa-icon {
+  font-size: 2em;
+  margin: 0 10px;
+}
+
+img.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 45%;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.profile-link {
+  position: "relative";
+}
+
+.profile-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* background-color: #d3d3d3; */
+  padding: "2px";
+  /* margin-top: 200px; */
+  margin-bottom: 2px;
+  border-radius: "4px";
+}
+
+
+.TopBar .info-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.loader-container {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* take full viewport height */
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  /* space between items */
+}
+
+.loader-message {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 40px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .loader-message {
+    font-size: 14px;
+    padding: 15px;
+    margin: 20px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 12px;
+  margin-left: 5px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.ticker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: blue;
+  font-size: 25px;
+  font-weight: bold;
+  height: 50px; 
+}
+
+.ticker img {
+  margin-left: 5px; /* Adjust the margin as needed */
+}
+
+/* */
+
+/*
+.TopBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background: white;
+
+  width: 100%;
+}
+*/
+
+.profile-link {
+  flex: 1;
+  cursor: pointer;
+}
+
+.menu-icons {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.hamburger {
+  display: flex;
+}
+
+.mobile-icons {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger h2 {
+    display: none;
+  }
+
+  .mobile-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .menu-icons {
+    display: none;
+  }
+}
+
+.menu-item {
+  cursor: pointer;
+  transition: color 0.3s;
+  /* Smooth transition for color change */
+}
+
+.menu-item:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.logo {
+  position: relative;
+  cursor: pointer;
+  /* Add other styles as needed */
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: blue;
+  color: white;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.TopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: white;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.button {
+  margin-left: 10px;
+}

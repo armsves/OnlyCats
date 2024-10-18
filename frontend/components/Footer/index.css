@@ -1,0 +1,26 @@
+.pageFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /*background-color: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);*/
+  background: white;
+  padding: 5px;
+  font-weight: 500;
+  /*text-align: center;*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid #999;
+}
+
+.pageFooter img {
+  margin-right: 5px; 
+  margin-left: 5px; 
+}
+
+.centeredContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
