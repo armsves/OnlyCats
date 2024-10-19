@@ -100,9 +100,22 @@
   flex-direction: row;
   /*flex-wrap: wrap;*/
   position: relative;
+  gap: 10px;
 }
 
 .bigTitle {
-text-align: center;
-
+  text-align: center;
 }
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-content: center;
+}
+
+.content {
+  width: 150px;
+  height: 200px; 
+}
+

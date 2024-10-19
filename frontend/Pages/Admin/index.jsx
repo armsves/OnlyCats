@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import NewCategory from "../../components/NewCategory"
-import NewProduct from "../../components/NewProduct"
+import NewProduct from "../../components/NewContent"
 import ProductsList from "../../components/ProductsList";
 import OrdersList from "../../components/OrdersList";
 import CategoriesList from "../../components/CategoriesList";

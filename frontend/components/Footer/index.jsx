@@ -22,6 +22,12 @@ const Footer = () => {
       </div>
 
       <div className="centeredContainer">
+        <a href="https://www.ethswarm.org/" target="_blank">
+          <img src="swarm.png" width="30px" height="30px" alt="Swarm logo" />
+        </a>
+      </div>
+
+      <div className="centeredContainer">
         <a href="https://github.com/armsves/OnlyCats" target="_blank">
           <img src="github.png" width="30px" height="30px" alt="GitHub logo" />
         </a>

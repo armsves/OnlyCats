@@ -1,0 +1,353 @@
+ 
+  .ContentPicture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*padding: 20px;*/
+    border-radius: 40px;
+    /*
+    background: #f3f3f3;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);*/
+    /*margin-bottom: 5px;*/
+    /* increased margin-bottom */
+    /*max-width: 244px;*/
+    /* increased max-width */
+    min-width: 100px;
+    /*margin: 20px;*/
+    /*max-height: 300px;*/
+    min-height: 100px;
+    color: #424242;
+    padding: 5px;
+    /*margin-left: 15px;*/
+    margin-right: 10px;
+  }
+
+ 
+  .ContentPicture:last-child {
+    margin-right: 0;
+  }
+  
+  .ContentPicture .card-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .ContentPicture img.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .ContentPicture h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .ContentPicture p {
+    font-size: 1em;
+    color: #424242;
+    /*height: 400px;
+    width: 600px;*/
+  }
+  
+  /*
+  .ContentCard .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 20px;
+  }
+  */
+  
+  .ContentPicture .comments-section {
+    /* Define your comments section style here */
+    margin-top: 2px;
+  }
+  
+  .ContentPicture img.content,
+  .ContentPicture video.content {
+    max-width: 244px;
+    /* for content image and video 
+    min-height: 360;
+    max-height: 244px;*/
+    border-radius: 10px;
+  }
+  
+  /* Responsive Adjustments */
+  
+  @media screen and (max-width: 768px) {
+  
+    /* Adjustments for screens up to 768px */
+    .ContentPicture {
+      padding: 10px;
+      margin-bottom: 30px;
+      max-width: 500px;
+    }
+  
+    .ContentPicture img.profile-pic {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .ContentPicture p {
+      height: auto;
+      width: 100%;
+    }
+  
+    .ContentWall {
+      min-width: 00px;
+    }
+  
+    .ContentPicture .footer {
+      height: 80px;
+    }
+  
+    .ContentPicture img.content,
+    .ContentPicture video.content {
+      max-width: 100%;
+      /*min-height: 200px;*/
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+  
+    /* Adjustments for screens up to 480px */
+    .ContentPicture {
+      padding: 5px;
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+  
+    .ContentWall {
+      min-width: 00px;
+    }
+  
+    .ContentPicture img.profile-pic {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .ContentPicture p {
+      height: auto;
+      width: 100%;
+    }
+  
+    .ContentPicture .footer {
+      height: 60px;
+    }
+  
+    .ContentPicture img.content,
+    .ContentPicture video.content {
+      max-width: 100%;
+      min-height: 150px;
+    }
+  }
+  
+  
+  .LoadingContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .LoadingContent img {
+    width: 100%;
+    max-height: 40vh;
+    /* 40% of viewport height */
+    object-fit: contain;
+    animation: breathing 3s ease-in-out infinite;
+  }
+  
+  @keyframes breathing {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(1.1);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  
+  .LoadingContent .loading-text {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    /*white-space: nowrap;*/
+    letter-spacing: .15em;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    height: 1em;
+    /* Adjust height of the loading text */
+    width: 80%;
+    /* Set the width of the text to be smaller than the image */
+    text-align: center;
+    /* Center the text */
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+  
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink-caret {
+  
+    from,
+    to {
+      border-color: transparent
+    }
+  
+    50% {
+      border-color: orange;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+  
+    /* Adjustments for screens up to 768px */
+    .LoadingContent img {
+      max-height: 30vh;
+      /* Adjust height as per requirement */
+    }
+  
+    .LoadingContent .loading-text {
+      width: 70%;
+      /* Set the width of the text to be smaller than the image */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+  
+    /* Adjustments for screens up to 480px */
+    .LoadingContent img {
+      max-height: 20vh;
+      /* Adjust height as per requirement */
+    }
+  
+    .LoadingContent .loading-text {
+      width: 60%;
+      /* Set the width of the text to be smaller than the image */
+    }
+  }
+  
+  .image-container {
+    position: relative;
+  }
+  
+  .image-container h6 {
+    position: absolute;
+    left: 0;
+    padding: 8px;
+    background-color: #000000b3;
+    color: #fff;
+    font-size: 20px;
+    text-align: left;
+    border-radius: 45px;
+    margin: 5px 0 0 5px;
+    margin-top: 30px;
+  }
+  
+  .ContentPicture .header {
+    position: absolute;
+    display: flex;
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* top: 0; */
+    /* right: 0; */
+    margin: 0;
+    top: 0;
+    /* padding-right: 5%; */
+    margin-top: 5px;
+    /*margin-left: 50px;*/
+    /* align-items: start;*/
+    align-items: left;
+  }
+
+  .ContentPicture .footer {
+    position: absolute;
+    display: flex;
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* top: 0; */
+    /* right: 0; */
+    margin: 0;
+    bottom: 0;
+    /* padding-right: 5%; */
+    margin-bottom: 5px;
+    /*margin-left: 50px;*/
+    /* align-items: start;*/
+    align-items: center;
+  }
+  
+  .footer .addButton {
+    width: 130px;
+    height: 28px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 99.5%;
+    /* identical to box height, or 20px */
+    /*
+    color: blue;
+    border: 2px solid blue;*/
+    border-radius: 45px;
+    text-align: center;
+    /*background-color:rgba(255,255,255,0.3);*/
+    /*background-color:#ccc;*/
+    padding: 2px;
+    margin-top: 30px;
+  }
+  
+  .ContentPicture {
+    text-align: center;
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    text-align: left;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    text-align: left;
+  }
+  
+  .image-wrapper img:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .content {
+    width: 150px; /* Set desired width */
+    height: 200px; /* Set desired height */
+    margin-top: 30px; /* Adjust to position image below the logo */
+  }
+  

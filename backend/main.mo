@@ -387,26 +387,26 @@ actor onlycats {
     Buffer.toArray(ProductBuffer)
   };
 
-  public shared (_msg) func addNewProduct(product : ContentsCall) : async Result.Result<Nat, Text> {
+  public shared (_msg) func addNewContent(content : ContentsCall) : async Result.Result<Nat, Text> {
     let newid = products.size();
     let newProduct : Contents = {
       id = newid;
-      category = product.category;
-      name = product.name;
-          ownerPrincipal = product.ownerPrincipal;
-          period = product.period;
-      active = product.active;
-      content = product.content;
-      contentWalrus = product.contentWalrus;
-      contentSwarm = product.contentSwarm;
-      contentIexec = product.contentIexec;
+      category = content.category;
+      name = content.name;
+      ownerPrincipal = content.ownerPrincipal;
+      period = content.period;
+      active = content.active;
+      content = content.content;
+      contentWalrus = content.contentWalrus;
+      contentSwarm = content.contentSwarm;
+      contentIexec = content.contentIexec;
     };
     switch (products.put(Nat.toText(newid), newProduct)) {
       case (_added) {
         return #ok(newid)
       }
     };
-    return #err("Couldn't add the product")
+    return #err("Couldn't add the content")
   };
 
   public shared query func getContent(productId : Nat) : async ContentType {

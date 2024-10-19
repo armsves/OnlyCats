@@ -22,12 +22,10 @@ function AppPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [profile, setProfile] = useState(null)
   const [caller, setCaller] = useState(null)
-  const [priceBTC, setPriceBTC] = useState(null)
-  const [priceETH, setPriceETH] = useState(null)
-  const [priceICP, setPriceICP] = useState(null)
   const [cartItemsCount, setCartItemsCount] = useState(null)
   const [categories, setCategories] = useState(null);
 
+  /*
   useEffect(() => {
     if (isAuthenticated) {
       // getIsReady()
@@ -42,6 +40,7 @@ function AppPage() {
       // setIsLoading(false)
     }
   }, [isAuthenticated, identity])
+  */
 
   const getIsReady = async () => {
     const caller = await backendActor.caller()
@@ -60,13 +59,14 @@ function AppPage() {
     }
   };
 
+  /*
   const [countdown, setCountdown] = useState(10)
   const updateCountdown = () => {
     let tempcount = countdown - 1;
     setCountdown(tempcount);
     if (tempcount === 0) {
       setCountdown(10);
-      fetchCryptoData();
+      //fetchCryptoData();
       //console.log("Data fetched")
     }
   };
@@ -76,6 +76,7 @@ function AppPage() {
     fetch(apiUrl + "ETHUSDT", {}).then(response => response.json()).then(data => { setPriceETH(data.price); }).catch(error => { console.log('Error fetching crypto data:', error); });
     fetch(apiUrl + "ICPUSDT", {}).then(response => response.json()).then(data => { setPriceICP(data.price); }).catch(error => { console.log('Error fetching crypto data:', error); });
   };
+  */
 
   const getCategories = async () => {
     setIsLoading(true);
@@ -86,27 +87,31 @@ function AppPage() {
     setIsLoading(false);
   }
 
+  /*
   useEffect(() => {
     const intervalId = setInterval(updateCountdown, 1000);
     return () => clearInterval(intervalId);
   }, [countdown]);
-
   useEffect(() => {
     verifyConnectionAndAgent();
-    fetchCryptoData();
+    //fetchCryptoData();
   }, []);
+  */
 
   //<Modal isOpen={modal} message={modalMsg} onClose={setModal} />
   return (
     <>
+      <FileLoader
+        isOpen={fileloader.isOpen}
+        currentIndex={fileloader.currentIndex}
+        totalChunks={fileloader.totalChunks}
+        className="my-custom-loader" />
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", }}>
         <Router>
           <TopBar
             profile={profile} setProfile={setProfile}
             setIsLoading={setIsLoading} cartItemsCount={cartItemsCount} categories={categories} getCategories={getCategories}
           />
-          <FileLoader isOpen={fileloader.isOpen} currentIndex={fileloader.currentIndex} totalChunks={fileloader.totalChunks}
-            className="my-custom-loader" />
           <Routes>
             <Route path="" element={
               <Home isLoading={isLoading} profile={profile} setCartItemsCount={setCartItemsCount} />} />

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useAuth } from "../../auth";
-import ProductCard from "../../components/ProductCard"
+import ContentCard from "../../components/ContentCard"
 import Footer from '../../components/Footer';
 import "./index.css";
 
@@ -28,11 +28,18 @@ function Home({ isLoading, profile, setCartItemsCount }) {
         <div className="products">
           {products && products.length > 0 ? (
             products.map(product => (
-              <ProductCard key={Number(product.id)} product={product} profile={profile} setCartItemsCount={setCartItemsCount} />
+              <ContentCard key={Number(product.id)} product={product} profile={profile} setCartItemsCount={setCartItemsCount} />
             ))
           ) : (
             <p>No cat content found.</p>
           )}
+        </div>
+      </div>
+      <div className="bigTitle">
+        <h1>And coming soon...</h1>
+        <div className="imageContainer">
+          <img className="content" src="onlyhens.png" alt="OnlyHens" />
+          <img className="content" src="onlycows.png" alt="OnlyCows" />
         </div>
       </div>
       <Footer />
