@@ -4,6 +4,7 @@ import NewProduct from "../../components/NewContent"
 import ProductsList from "../../components/ProductsList";
 import OrdersList from "../../components/OrdersList";
 import CategoriesList from "../../components/CategoriesList";
+
 import { useAuth } from '../../auth';
 import "./index.css";
 import Footer from '../../components/Footer';

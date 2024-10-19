@@ -48,6 +48,7 @@ function TopBar({ setIsLoading, profile, setProfile, cartItemsCount, categories,
           <PlugConnect
             dark
             title={!connected ? "Connect Wallet" : !profile?.admin ? "Wallet Connected" : "Admin Connected"}
+            whitelist={["bkyz2-fmaaa-aaaaa-qaaaq-cai"]}
             onConnectCallback={
               async () => {
                 const principalId: String = await window.ic.plug.agent.getPrincipal();

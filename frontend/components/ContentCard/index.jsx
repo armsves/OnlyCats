@@ -3,6 +3,10 @@ import "./index.css";
 import { useAuth } from '../../auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { idlFactory } from './ICRC-2.did';
+import { create } from 'domain';
+import { Principal } from '@dfinity/principal';
+
 
 function LoadingContent({ isLoading, imgSrc }) {
   if (!isLoading) {
@@ -67,7 +71,7 @@ function ContentCard({ product, profile, setCartItemsCount }) {
     } else if ('Video' in content && !videoUrl) {
       return <LoadingContent isLoading={true} imgSrc={"onlycats.png"} />;
     } else if ('Image' in content) {
-      return imgSrc ? <img id={`product-img${Number(product.id)}`}  width="150px" height="200px" className="content" src={imgSrc} alt="Content" /> : null;
+      return imgSrc ? <img id={`product-img${Number(product.id)}`} width="150px" height="200px" className="content" src={imgSrc} alt="Content" /> : null;
     } else if ('Video' in content) {
       return videoUrl ? <video id={`product-video${Number(product.id)}`} className="content" src={videoUrl} controls /> : null;
     }
@@ -111,11 +115,53 @@ function ContentCard({ product, profile, setCartItemsCount }) {
 
   const addToCart = async () => {
     if (profile && profile.name) {
-      let response = await backendActor.addToCart(product.id, profile.name);
+      //let response = await backendActor.addToCart(product.id, profile.name);
+      //await window.ic.plug.requestTransfer({to: "bfaxj-k4saz-ynsqm-ffmwa-v3his-2zmp2-f75ts-xpf3q-7dumn-5zemr-5qe", amount: 100000000})
+
+
+      const ICRC2UiActor = await window.ic.plug?.createActor({
+        canisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",
+        interfaceFactory: idlFactory,
+      });
+
+      const principalId = await window.ic.plug.agent.getPrincipal();
+
+      console.log("principalId",principalId);
+
+      const approve = await ICRC2UiActor.icrc2_approve({
+        amount: 1000000000,
+        to: "bkyz2-fmaaa-aaaaa-qaaaq-cai",
+        fee: [10000],
+        memo: [],
+        from_subaccount: [],
+        //spender_subaccount: [],
+        spender: {
+          owner: Principal.fromText("bkyz2-fmaaa-aaaaa-qaaaq-cai"),
+          subaccount: [],
+        },        
+        created_at_time: [],
+        expected_allowance: [],
+        expires_at: [], 
+      });
+
+      console.log("approve",approve);
+/*
+      if (approve) {
+        toast.success("Content subscribed");
+        //getCartItemsCount();
+      } else 
+      */
+      if (approve.Err.InsufficientFunds) {
+        toast.error("Insufficient balance to subscribe to content");
+      } else {
+        toast.error("Error subscribing to content");
+      }
+
+      /*
       if (response) {
         toast.success("Content added to cart");
         getCartItemsCount();
-      }
+      }*/
     } else {
       toast.warning("Please connect your wallet!");
     }
@@ -124,7 +170,8 @@ function ContentCard({ product, profile, setCartItemsCount }) {
   return (
     <div className={`ContentPicture`}>
       <div className="card-header">
-        <h6><img src="paw.png" width="30px" height="30px" alt="logo" />{product.name}</h6>
+        <img src="paw.png" width="30px" height="30px" alt="logo" />
+        @{product.name}
       </div>
       <div className="image-container">
         <h6><img src="ICPwhite.png" width="30px" height="30px" alt="ICP logo" />ICP</h6>
@@ -136,7 +183,7 @@ function ContentCard({ product, profile, setCartItemsCount }) {
       </div>
       <div className="image-container">
         <h6><img src="swarm.png" width="30px" height="30px" alt="Swarm logo" />Swarm</h6>
-        {product.contentSwarm && <img className="content"  width="150px" height="200px" src={`http://127.0.0.1:1633/bzz/${product.contentSwarm}`} alt="Swarm" />}
+        {product.contentSwarm && <img className="content" width="150px" height="200px" src={`http://127.0.0.1:1633/bzz/${product.contentSwarm}`} alt="Swarm" />}
       </div>
       <div className="footer">
         <button className="addButton" onClick={addToCart}>Subscribe</button>

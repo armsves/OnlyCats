@@ -7,3 +7,6 @@ declare module "canisters/CanCan" {
   export const idlFactory: any;
   export const canisterId: string;
 }
+interface Window {
+  ethereum: any;
+}

@@ -23,7 +23,17 @@ import Char "mo:base/Char";
 import Cycles "mo:base/ExperimentalCycles";
 import Types "Types";
 
+import Time "mo:base/Time";  
+//import Timer "mo:base/Timer";  
+import Debug "mo:base/Debug";  
+
 actor onlycats {
+    system func timer(setGlobalTimer : Nat64 -> ()) : async () {  
+      let next = Nat64.fromIntWrap(Time.now()) + 60_000_000_000;  
+      setGlobalTimer(next); // absolute time in nanoseconds  
+      Debug.print("Checking for subscriptions!");
+  };
+
   type Time = Int;
   type Account = Account.Account;
   type Video = TrieMap.TrieMap<Text, [Nat8]>;
@@ -651,7 +661,9 @@ actor onlycats {
     return Buffer.toArray(ProductsBuffer)
   };
 
-  public shared func addToCart(productId : Nat, customerId : Text) : async Bool {
+  public shared (msg) func addToCart(productId : Nat, customerId : Text) : async Bool {
+    var _ownerPrincipal : Principal = msg.caller;
+
     var newid = shoppingCart.size();
     var newQuantity = 1;
     for (value in shoppingCart.vals()) {

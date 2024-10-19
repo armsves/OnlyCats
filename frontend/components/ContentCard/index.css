@@ -20,6 +20,7 @@
     padding: 5px;
     /*margin-left: 15px;*/
     margin-right: 10px;
+    border: 1px solid #ccc;
   }
 
  
@@ -31,6 +32,15 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: left;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   
   .ContentPicture img.profile-pic {
@@ -252,9 +262,9 @@
     position: absolute;
     left: 0;
     padding: 8px;
-    background-color: #000000b3;
+    background-color: #00AFF0;
     color: #fff;
-    font-size: 20px;
+    font-size: 25px;
     text-align: left;
     border-radius: 45px;
     margin: 5px 0 0 5px;
@@ -276,6 +286,13 @@
     /*margin-left: 50px;*/
     /* align-items: start;*/
     align-items: left;
+    left: 0;
+    padding: 8px;
+    color: #000;
+    font-size: 45px;
+    text-align: left;
+    border-radius: 45px;
+    margin: 5px 0 0 5px;
   }
 
   .ContentPicture .footer {
@@ -290,6 +307,7 @@
     bottom: 0;
     /* padding-right: 5%; */
     margin-bottom: 5px;
+    padding: 5px;
     /*margin-left: 50px;*/
     /* align-items: start;*/
     align-items: center;
@@ -317,15 +335,6 @@
   
   .ContentPicture {
     text-align: center;
-  }
-  
-  .card-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 20px;
-    text-align: left;
   }
   
   .image-container {
